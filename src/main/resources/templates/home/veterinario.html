@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragmentos/layout :: layout(~{::title}, ~{::section})}">
+<head>
+	<title>Agenda — ClyvoVet</title>
+</head>
+<body>
+<section>
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h1 class="h3 mb-0">Olá, <span th:text="${usuarioLogado.nomeExibicao}">Veterinário</span></h1>
+		<a th:href="@{/consultas/nova}" class="btn btn-primary">
+			<i class="bi bi-calendar-plus me-1"></i>Agendar consulta
+		</a>
+	</div>
+
+	<div th:replace="~{consulta/fragmentos :: agenda(${agendaDoDia}, ${naoRealizadas})}"></div>
+</section>
+</body>
+</html>

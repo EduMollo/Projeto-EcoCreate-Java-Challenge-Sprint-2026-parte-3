@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragmentos/layout :: layout(~{::title}, ~{::section})}">
+<head>
+	<title>Entrar — ClyvoVet</title>
+</head>
+<body>
+<section>
+	<div class="card shadow-sm login-card">
+		<div class="card-body p-4">
+			<div class="text-center mb-4">
+				<i class="bi bi-heart-pulse display-4 text-primary"></i>
+				<h1 class="h4 mt-2 mb-0">ClyvoVet</h1>
+				<p class="text-secondary small mb-0">Jornada contínua de saúde do pet</p>
+			</div>
+
+			<div th:if="${param.logout}" class="alert alert-success py-2">
+				<i class="bi bi-check-circle me-1"></i>Sessão encerrada com sucesso.
+			</div>
+			<div th:if="${param.cadastro}" class="alert alert-success py-2">
+				<i class="bi bi-person-check me-1"></i>Conta criada com sucesso. Entre com seu usuário e senha.
+			</div>
+			<div th:if="${param.falha}" class="alert alert-danger py-2">
+				<i class="bi bi-exclamation-triangle me-1"></i>Usuário ou senha inválidos.
+			</div>
+
+			<form th:action="@{/login}" method="post">
+				<div class="mb-3">
+					<label for="username" class="form-label">Usuário</label>
+					<input type="text" class="form-control" id="username" name="username" required autofocus>
+				</div>
+				<div class="mb-4">
+					<label for="password" class="form-label">Senha</label>
+					<input type="password" class="form-control" id="password" name="password" required>
+				</div>
+				<button type="submit" class="btn btn-primary w-100">
+					<i class="bi bi-box-arrow-in-right me-1"></i>Entrar
+				</button>
+			</form>
+
+			<hr class="my-4">
+			<p class="text-center small mb-0">
+				É tutor e ainda não tem conta?
+				<a th:href="@{/cadastro}" class="fw-semibold">Criar conta</a>
+			</p>
+		</div>
+	</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragmentos/layout :: layout(~{::title}, ~{::section})}">
+<head>
+	<title>Painel administrativo — ClyvoVet</title>
+</head>
+<body>
+<section>
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h1 class="h3 mb-0">Olá, <span th:text="${usuarioLogado.nomeExibicao}">Admin</span></h1>
+		<span class="text-secondary" th:text="${#temporals.format(#temporals.createToday(), 'dd/MM/yyyy')}">Hoje</span>
+	</div>
+
+	<div class="row g-3 mb-4">
+		<div class="col-6 col-lg-3">
+			<div class="card card-indicador shadow-sm h-100">
+				<div class="card-body">
+					<div class="text-secondary small">Pets ativos</div>
+					<div class="valor" th:text="${totalPets}">0</div>
+					<a th:href="@{/pets}" class="small">Ver pets</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-6 col-lg-3">
+			<div class="card card-indicador shadow-sm h-100">
+				<div class="card-body">
+					<div class="text-secondary small">Tutores</div>
+					<div class="valor" th:text="${totalTutores}">0</div>
+					<a th:href="@{/tutores}" class="small">Ver tutores</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-6 col-lg-3">
+			<div class="card card-indicador shadow-sm h-100">
+				<div class="card-body">
+					<div class="text-secondary small">Clínicas</div>
+					<div class="valor" th:text="${totalClinicas}">0</div>
+					<a th:href="@{/clinicas}" class="small">Ver clínicas</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-6 col-lg-3">
+			<div class="card card-indicador shadow-sm h-100">
+				<div class="card-body">
+					<div class="text-secondary small">Usuários</div>
+					<div class="valor" th:text="${totalUsuarios}">0</div>
+					<a th:href="@{/usuarios}" class="small">Gerenciar usuários</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="~{consulta/fragmentos :: agenda(${agendaDoDia}, ${naoRealizadas})}"></div>
+</section>
+</body>
+</html>
