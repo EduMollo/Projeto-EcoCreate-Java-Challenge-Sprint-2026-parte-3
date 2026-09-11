@@ -230,8 +230,10 @@ mvnw.cmd test
 
 ## Equipe
 
-| Integrante | RM | Frente |
-|---|---|---|
-| _(preencher)_ | | |
-| _(preencher)_ | | |
-| _(preencher)_ | | |
+| Integrante | RM |
+|---|---|
+|Mathaus Victor Souza Marcelino| RM: 564146 |
+|Luan Peixoto Marins Rocha| RM: 562258 |
+|Eduardo Novaes Mollo| RM: 561515 |
+|Carlos Alberto Guedes Neto| RM: 566022 |
+|Vinicius Luis Exposito Morassi| RM: 563340 |
